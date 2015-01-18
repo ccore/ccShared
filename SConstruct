@@ -14,14 +14,22 @@ def install(env, lib):
     for dep in deps:
         install(env, dep)
 
-    print 'Installing ' + lib 
-    libInstall=env.Install(dir='/usr/lib', source=lib + '/lib/lib' + lib + '.a')
-    headerInstall=env.Install(dir='/usr/include', source=lib + '/include/' + lib)
-    Clean(libInstall, '/usr/include/' + lib)
-    env.Alias('install', '/usr')
-    
+    sources=[]
+    for root, dirnames, filenames in os.walk(lib+'/src'):
+        for filename in fnmatch.filter(filenames, '*.c'):
+            sources.append(Glob(os.path.join(root, filename)))
 
-env=Environment(CC='gcc', CCFLAGS='-Iinclude/')
+    env['CCFLAGS']=['-I'+lib+'/include/']
+
+    staticLibrary=env.Library(target=lib+'/lib/'+lib, source=sources)
+
+    print 'Installing '+lib 
+    libInstall=env.Install(dir='/usr/lib', source=staticLibrary)
+    headerInstall=env.Install(dir='/usr/include', source=lib+'/include/'+lib)
+    Clean(libInstall, '/usr/include/'+lib)
+    env.Alias('install', '/usr')
+
+env=DefaultEnvironment(CC='gcc')
 
 # Scan all libraries
 libraries=[]
@@ -30,9 +38,10 @@ for name in os.listdir('.'):
         libraries.append(name)
 
 opts=Variables('custom.py', ARGUMENTS)
-opts.Add('target', ' '.join(map(str, libraries)), libraries[0], allowed_values=libraries)
+opts.Add('target', ' '.join(map(str, libraries))+' none', 'none', allowed_values=libraries)
 opts.Update(env)
 
-install(env, env['target'])
+if env['target'] != 'none':
+    install(env, env['target'])
 
 Help(opts.GenerateHelpText(env))
