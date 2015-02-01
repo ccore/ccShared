@@ -10,3 +10,6 @@
 [submodule "ccSort"]
 	path = ccSort
 	url = https://github.com/jobtalle/ccSort.git
+[submodule "ccVector"]
+	path = ccVector
+	url = https://github.com/jobtalle/ccVector.git

@@ -7,6 +7,7 @@ A collection of libraries supplementing ccore
 | [ccRandom](https://github.com/jobtalle/ccRandom) | None |
 | [ccSort](https://github.com/jobtalle/ccSort) | None |
 | [ccTrigonometry](https://github.com/jobtalle/ccTrigonometry) | None |
+| [ccVector](https://github.com/jobtalle/ccVector) | None |
 
 # How to install
 **Linux**: `sudo scons install target="LIBRARY_NAME"`

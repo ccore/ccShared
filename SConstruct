@@ -21,7 +21,7 @@ def install(env, lib):
 
     env['CCFLAGS']=['-I'+lib+'/include/']
 
-    staticLibrary=env.Library(target=lib+'/lib/'+lib, source=sources)
+    staticLibrary=env.Library(target=lib+'/lib/'+lib, source=sources, LIBS=['m'])
 
     print 'Installing '+lib 
     libInstall=env.Install(dir='/usr/lib', source=staticLibrary)
