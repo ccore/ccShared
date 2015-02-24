@@ -1,1 +1,2 @@
 ccNoise: ccRandom ccSort ccTrigonometry
+ccCollision: ccVector
