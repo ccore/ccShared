@@ -13,3 +13,6 @@
 [submodule "ccVector"]
 	path = ccVector
 	url = https://github.com/jobtalle/ccVector.git
+[submodule "ccCollision"]
+	path = ccCollision
+	url = git@github.com:tversteeg/ccCollision.git
