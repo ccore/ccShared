@@ -7,6 +7,7 @@ A collection of libraries supplementing ccore
 | [ccRandom](https://github.com/jobtalle/ccRandom) | None |
 | [ccSort](https://github.com/jobtalle/ccSort) | None |
 | [ccTrigonometry](https://github.com/jobtalle/ccTrigonometry) | None |
+| [ccCollision](https://github.com/tversteeg/ccCollision) | **ccVector** |
 | [ccVector](https://github.com/jobtalle/ccVector) | None |
 
 # How to install
