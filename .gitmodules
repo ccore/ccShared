@@ -1,6 +1,12 @@
 [submodule "ccNoise"]
 	path = ccNoise
 	url = https://github.com/jobtalle/ccNoise.git
+[submodule "ccFont"]
+	path = ccFont
+	url = https://github.com/tversteeg/ccFont.git
+[submodule "ccTerm"]
+	path = ccTerm
+	url = https://github.com/tversteeg/ccTerm.git
 [submodule "ccRandom"]
 	path = ccRandom
 	url = https://github.com/jobtalle/ccRandom.git
